@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class OpenWeatherMapApiClient {
+public class RiotApiClient {
 
     @Autowired
     private RestTemplate restTemplate;
