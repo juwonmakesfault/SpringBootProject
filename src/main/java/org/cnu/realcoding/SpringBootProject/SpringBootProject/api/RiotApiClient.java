@@ -15,7 +15,7 @@ public class RiotApiClient {
     private String requestUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
 
     public SummonerLeaguePosition getSummonerLeaguePosition(String summonerName){
-        return restTemplate.exchange(requestUrl, HttpMethod.GET, null,SummonerLeaguePosition.class,summonerName,"RGAPI-a03be90f-9180-4775-8624-9694af28c4b1")
+        return restTemplate.exchange(requestUrl, HttpMethod.GET, null,SummonerLeaguePosition.class,summonerName,"RGAPI-d1c4b486-1d9d-422c-a2aa-f2a7534c6d3d")
                 .getBody();
 
     }
