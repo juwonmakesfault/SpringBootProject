@@ -12,7 +12,7 @@ public class RiotApiClient {
 
     @Autowired
     private RestTemplate restTemplate;
-    private String requestUrl = "https://api.openweathermap.org/data/2.5/weather?q={cityName}&appid={appid}";
+    private String requestUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
 
     public SummonerLeaguePosition getSummonerLeaguePosition(String summonerName){
         return restTemplate.exchange(requestUrl, HttpMethod.GET, null,SummonerLeaguePosition.class,summonerName,"RGAPI-a03be90f-9180-4775-8624-9694af28c4b1")
