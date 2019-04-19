@@ -9,7 +9,7 @@ public class SummonerService {
     private LinkedList<String> Summoner = new LinkedList();
 
     public void getSummonerLeaguePosition(){
-        
+
     }
 
 
