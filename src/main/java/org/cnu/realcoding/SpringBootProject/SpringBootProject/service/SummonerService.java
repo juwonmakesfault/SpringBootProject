@@ -18,9 +18,9 @@ public class SummonerService {
     private SummonerLeaguePositionRepository summonerLeaguePositionRepository;
 
     public void getSummonerLeaguePosition(){
-
-
-
+        String Puuid = riotApiClient.getSummonerLeagueName("hide on bush").getSummonerDTO().getPuuid();
+        SummonerLeaguePosition summonerLeaguePosition = riotApiClient.getSummonerLeaguePosition(Puuid) ;
+        summonerLeaguePositionRepository.insertSummonerLeaguePosition(summonerLeaguePosition);
     }
 
 
