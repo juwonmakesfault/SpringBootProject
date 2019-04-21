@@ -12,11 +12,14 @@ public class RiotApiClient {
 
     @Autowired
     private RestTemplate restTemplate;
-    private String requestUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
-
-    public SummonerLeaguePosition getSummonerLeaguePosition(String summonerName){
-        return restTemplate.exchange(requestUrl, HttpMethod.GET, null,SummonerLeaguePosition.class,summonerName,"RGAPI-d1c4b486-1d9d-422c-a2aa-f2a7534c6d3d")
+    private String requestNameurl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
+    private String requestSummonerurl ="https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}?api_key={api_key}";
+    public SummonerLeaguePosition getSummonerLeagueName(String summonerName){
+        return restTemplate.exchange(requestNameurl, HttpMethod.GET, null,SummonerLeaguePosition.class,summonerName,"RGAPI-d1c4b486-1d9d-422c-a2aa-f2a7534c6d3d")
                 .getBody();
-
+    }
+    public SummonerLeaguePosition getSummonerLeaguePosition(String summonerPUUID){
+        return restTemplate.exchange(requestSummonerurl, HttpMethod.GET, null,SummonerLeaguePosition.class,summonerPUUID,"RGAPI-d1c4b486-1d9d-422c-a2aa-f2a7534c6d3d")
+                .getBody();
     }
 }
