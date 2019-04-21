@@ -6,6 +6,7 @@ import lombok.Data;
 public class SummonerLeaguePosition {
     private SummonerDTO summonerDTO;
     private LeaguePositionDTO leaguePositionDTO;
+    private MiniSeriesDTO miniSeriesDTO;
     @Data
     public static class SummonerDTO{
         private int profileIconId;
