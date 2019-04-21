@@ -7,6 +7,7 @@ public class SummonerLeaguePosition {
     private SummonerDTO summonerDTO;
     private LeaguePositionDTO leaguePositionDTO;
     private MiniSeriesDTO miniSeriesDTO;
+
     @Data
     public static class SummonerDTO{
         private int profileIconId;
@@ -17,7 +18,8 @@ public class SummonerLeaguePosition {
         private String id;
         private String acountid;
     }
-    private static class LeaguePositionDTO {
+    @Data
+    public static class LeaguePositionDTO {
         private String queueType;
         private String summonerName;
         private boolean hotStreak;
@@ -35,7 +37,8 @@ public class SummonerLeaguePosition {
         private String summonerId;
         private String leaguePoints;
     }
-    private static class MiniSeriesDTO{
+    @Data
+    public static class MiniSeriesDTO{
         private String progress;
         private int losses;
         private int target;
