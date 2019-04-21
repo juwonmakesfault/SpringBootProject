@@ -19,7 +19,6 @@ public class RiotApiClient {
     private String requestNameurl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
     private String requestSummonerurl ="https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{encryptedPUUID}?api_key={api_key}";
     private String api_key = "RGAPI-bab5580b-6a94-44ee-a0e3-f1350e63d24a";
-
     public SummonerLeaguePosition.SummonerDTO getSummonerLeagueName(String summonerName){
         return restTemplate.exchange(requestNameurl, HttpMethod.GET, null,SummonerLeaguePosition.SummonerDTO.class,summonerName,api_key)
                 .getBody();
