@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class SummonerService {
-    private LinkedList<String> Summoner = new LinkedList();
+    private LinkedList<String> Summoner = new LinkedList<>();
 
     @Autowired
     private RiotApiClient riotApiClient;
