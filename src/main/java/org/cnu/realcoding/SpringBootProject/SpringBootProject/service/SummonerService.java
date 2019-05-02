@@ -19,7 +19,6 @@ public class SummonerService {
     @Autowired
     private SummonerLeaguePositionRepository summonerLeaguePositionRepository;
 
-    @Scheduled(initialDelay = 5000L , fixedDelay = 2000L)
     public SummonerLeaguePosition.LeaguePositionDTO getSummonerLeaguePosition(String summorerName){
         String id = riotApiClient.getSummonerLeagueName(summorerName).getId();
         List<SummonerLeaguePosition.LeaguePositionDTO> summonerLeaguePosition = riotApiClient.getSummonerLeaguePosition(id);
