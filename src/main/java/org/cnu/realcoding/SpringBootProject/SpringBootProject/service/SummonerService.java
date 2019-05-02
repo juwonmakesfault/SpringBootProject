@@ -27,6 +27,14 @@ public class SummonerService {
             summonerLeaguePositionRepository.insertSummonerLeaguePosition(a);
     }
 
+    @Scheduled(initialDelay = 5000L , fixedDelay = 2000L)
+    public void getSummonerLeaguePosition(String summorerName){
+        String id = riotApiClient.getSummonerLeagueName(summorerName).getId();
+        List<SummonerLeaguePosition.LeaguePositionDTO> summonerLeaguePosition = riotApiClient.getSummonerLeaguePosition(id);
+        for(SummonerLeaguePosition.LeaguePositionDTO a : summonerLeaguePosition)
+            summonerLeaguePositionRepository.insertSummonerLeaguePosition(a);
+    }
+
 
 
 }
