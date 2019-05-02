@@ -20,14 +20,6 @@ public class SummonerService {
     private SummonerLeaguePositionRepository summonerLeaguePositionRepository;
 
     @Scheduled(initialDelay = 5000L , fixedDelay = 2000L)
-    public void getSummonerLeaguePosition(){
-        String id = riotApiClient.getSummonerLeagueName("hide on bush").getId();
-        List<SummonerLeaguePosition.LeaguePositionDTO> summonerLeaguePosition = riotApiClient.getSummonerLeaguePosition(id);
-        for(SummonerLeaguePosition.LeaguePositionDTO a : summonerLeaguePosition)
-            summonerLeaguePositionRepository.insertSummonerLeaguePosition(a);
-    }
-
-    @Scheduled(initialDelay = 5000L , fixedDelay = 2000L)
     public void getSummonerLeaguePosition(String summorerName){
         String id = riotApiClient.getSummonerLeagueName(summorerName).getId();
         List<SummonerLeaguePosition.LeaguePositionDTO> summonerLeaguePosition = riotApiClient.getSummonerLeaguePosition(id);
