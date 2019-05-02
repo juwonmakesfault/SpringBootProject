@@ -12,23 +12,20 @@ import java.util.List;
 
 @Service
 public class SummonerService {
-    private LinkedList<String> Summoner = new LinkedList();
+    private LinkedList<String> Summoner = new LinkedList<>();
 
     @Autowired
     private RiotApiClient riotApiClient;
     @Autowired
     private SummonerLeaguePositionRepository summonerLeaguePositionRepository;
 
-    @Scheduled(initialDelay = 5000L , fixedDelay = 2000L)
-    public void getSummonerLeaguePosition(){
-        String id = riotApiClient.getSummonerLeagueName("hide on bush").getId();
+    public SummonerLeaguePosition.LeaguePositionDTO getSummonerLeaguePosition(String summorerName){
+        String id = riotApiClient.getSummonerLeagueName(summorerName).getId();
         List<SummonerLeaguePosition.LeaguePositionDTO> summonerLeaguePosition = riotApiClient.getSummonerLeaguePosition(id);
-        for(SummonerLeaguePosition.LeaguePositionDTO a : summonerLeaguePosition)
-            summonerLeaguePositionRepository.insertSummonerLeaguePosition(a);
+        for(SummonerLeaguePosition.LeaguePositionDTO dto : summonerLeaguePosition)
+            summonerLeaguePositionRepository.insertSummonerLeaguePosition(dto);
+        return summonerLeaguePosition.get(0);
     }
-
-
-
 }
 
 
